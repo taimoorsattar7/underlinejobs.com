@@ -1,0 +1,5 @@
+export { default as github } from './github_icon.svg'
+export { default as twitter } from './twitter_icon.svg'
+export { default as linkedin } from './linkedin_icon.svg'
+export { default as youtube } from './youtube_icon.svg'
+export { default as facebook } from './facebook_icon.svg'

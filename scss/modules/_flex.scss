@@ -1,0 +1,50 @@
+.flex {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+
+  &--justify-end{
+    justify-content: end;
+  }
+
+  &--items-center{
+    align-items: center;
+  }
+
+  &--inline {
+    display: inline-flex;
+  }
+
+  &-gap-m{
+    gap: 40px;
+  }
+
+  &-gap-l{
+    gap: 60px;
+  }
+
+  li,
+  span,
+  div {
+    list-style: none;
+    // flex: 1;
+    flex: auto;
+    // flex-basis: auto;
+  }
+
+  &__shrink0 {
+    flex-shrink: 0 !important;
+  }
+
+  &__large {
+    flex-grow: 2;
+  }
+
+  &__logo {
+    width: 30px;
+    height: auto;
+  }
+}

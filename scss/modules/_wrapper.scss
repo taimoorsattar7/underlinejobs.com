@@ -1,0 +1,45 @@
+@import './mixin';
+
+.wrapper {
+  overflow: hidden;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  padding-left: 15px;
+  padding-right: 15px;
+
+  position: relative;
+
+  @include atMinSmall {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  @include atMinMedium {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  @include atMinLarge {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  &--no-bottom-padd {
+    padding-bottom: 0;
+
+    @include atMinMedium {
+      padding-bottom: 10px;
+    }
+  }
+
+  &--narrow {
+    max-width: 960px;
+  }
+
+  &--small {
+    max-width: 530px;
+  }
+}

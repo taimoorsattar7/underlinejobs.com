@@ -1,0 +1,52 @@
+:root {
+  --canvasColor: #f9f9f9;
+}
+
+body {
+  background: var(--canvasColor);
+  font-family: 'Rubik', sans-serif;
+  font-weight: 300;
+  line-height: 1.5;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+tr {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+}
+
+table {
+  border-collapse: separate;
+  text-indent: initial;
+  border-spacing: 2px;
+  border-collapse: collapse;
+}
+
+td {
+  display: table-cell;
+  vertical-align: inherit;
+}
+
+hr {
+  background-color: #fff !important; 
+  padding: 0 !important;
+  margin: 80px !important;
+  border: 0 !important;
+  height: 1px !important;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0)) !important;
+}
+
+::before,
+::after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: #e2e8f0;
+}

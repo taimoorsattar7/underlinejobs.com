@@ -1,0 +1,63 @@
+.source {
+  .item {
+    cursor: pointer;
+    background-color: lightgray;
+    border: 1px solid black;
+  }
+}
+
+.duration-150 {
+  transition-duration: 150ms;
+}
+.transform {
+  --transform-translate-x: 0;
+  --transform-translate-y: 0;
+  --transform-rotate: 0;
+  --transform-skew-x: 0;
+  --transform-skew-y: 0;
+  --transform-scale-x: 1;
+  --transform-scale-y: 1;
+  transform: translateX(var(--transform-translate-x)) translateY(var(--transform-translate-y))
+    rotate(var(--transform-rotate)) skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y))
+    scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y));
+}
+.border-b {
+  border-bottom-width: 1px;
+}
+.bg-white {
+  background-color: #fff;
+}
+
+.whitespace-no-wrap {
+  white-space: nowrap;
+}
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.border-gray-200 {
+  border-color: #edf2f7;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.w-10 {
+  width: 2.5rem;
+}
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+
+.ml-4 {
+  margin-left: 1rem;
+}
