@@ -1,4 +1,5 @@
-import { MongoClient } from 'mongodb';
+import { MongoClient } from 'mongodb'
+const { ClientEncryption } = require('mongodb-client-encryption')
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 /**
@@ -11,29 +12,27 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 declare global {
   namespace NodeJS {
     interface Global {
-      document: Document;
-      window: Window;
-      navigator: Navigator;
-      mongo: any;
+      document: Document
+      window: Window
+      navigator: Navigator
+      mongo: any
     }
   }
 }
 
-global.mongo = global.mongo || {};
+global.mongo = global.mongo || {}
 
-let indexesCreated = false;
+let indexesCreated = false
 export async function createIndexes(db: any) {
   await Promise.all([
-    db
-      .collection('tokens')
-      .createIndex({ expireAt: -1 }, { expireAfterSeconds: 0 }),
+    db.collection('tokens').createIndex({ expireAt: -1 }, { expireAfterSeconds: 0 }),
     db.collection('posts').createIndex({ createdAt: -1 }),
     db.collection('companies').createIndex({ createdAt: -1 }),
     db.collection('jobs').createIndex({ createdAt: -1 }),
     db.collection('resume').createIndex({ createdAt: -1 }),
     db.collection('users').createIndex({ email: 1 }, { unique: true }),
-  ]);
-  indexesCreated = true;
+  ])
+  indexesCreated = true
 }
 
 export default async function database(req: NextApiRequest, res: NextApiResponse, next: () => any) {
@@ -41,12 +40,12 @@ export default async function database(req: NextApiRequest, res: NextApiResponse
     global.mongo.client = new MongoClient(process.env.MONGODB_URI ?? '', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-    });
-    await global.mongo.client.connect();
+    })
+    await global.mongo.client.connect()
   }
-  req.dbClient = global.mongo.client;
+  req.dbClient = global.mongo.client
 
-  req.db = global.mongo.client.db(process.env.DB_NAME);
-  if (!indexesCreated) await createIndexes(req.db);
-  return next();
+  req.db = global.mongo.client.db(process.env.DB_NAME)
+  if (!indexesCreated) await createIndexes(req.db)
+  return next()
 }
