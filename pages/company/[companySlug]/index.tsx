@@ -3,7 +3,7 @@ import { all } from '@middlewares/index'
 // import { useCurrentUser } from '@hooks/index'
 import { extractUser } from '@lib/api-helpers'
 import { findUserById, findCompanyBySlug } from '@db/index'
-import Company from '@components/company/Company'
+// import Company from '@components/company/Company'
 
 import SEO from '@components/SEO'
 
@@ -18,7 +18,7 @@ export default function CompanyPage({ user, value }: any) {
   return (
     <>
       <SEO title={''} description={''} image={''} />
-      <Company data={value} />
+      {/* <Company data={value} /> */}
     </>
   )
 }
