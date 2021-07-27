@@ -1,6 +1,6 @@
-import React, { FC, useEffect } from 'react';
-import Head from 'next/head';
-import Layout from '@components/layout';
+import React, { useEffect } from 'react'
+import Head from 'next/head'
+import Layout from '@components/layout'
 import { useRouter } from 'next/router'
 
 // import App from "next/app";
@@ -32,5 +32,5 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <Component {...pageProps} />
     </Layout>
-  );
+  )
 }

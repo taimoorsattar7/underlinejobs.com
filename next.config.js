@@ -1,9 +1,6 @@
-require('dotenv').config();
+require('dotenv').config()
 
-const {
-  PHASE_DEVELOPMENT_SERVER,
-  PHASE_PRODUCTION_BUILD,
-} = require('next/constants')
+const { PHASE_DEVELOPMENT_SERVER, PHASE_PRODUCTION_BUILD } = require('next/constants')
 
 const getBuildConfig = () => {
   const path = require('path')
@@ -26,28 +23,38 @@ const getBuildConfig = () => {
 
   const nextConfig = {
     ...cssOptions,
+    typescript: {
+      // !! WARN !!
+      // Dangerously allow production builds to successfully complete even if
+      // your project has type errors.
+      // !! WARN !!
+      ignoreBuildErrors: true,
+    },
     webpack(config) {
-      config.module.rules.push({
-        test: /\.svg$/,
-        include: path.join(process.cwd(), 'components', 'icon', 'icons'),
-        use: [
-          'svg-sprite-loader',
-          {
-            loader: 'svgo-loader',
-            options: {
-              plugins: [
-                { removeAttrs: { attrs: '(fill)' } },
-                { removeTitle: true },
-                { cleanupIDs: true },
-                { removeStyleElement: true },
-              ],
+      config.module.rules.push(
+        {
+          test: /\.svg$/,
+          include: path.join(process.cwd(), 'components', 'icon', 'icons'),
+          use: [
+            'svg-sprite-loader',
+            {
+              loader: 'svgo-loader',
+              options: {
+                plugins: [
+                  { removeAttrs: { attrs: '(fill)' } },
+                  { removeTitle: true },
+                  { cleanupIDs: true },
+                  { removeStyleElement: true },
+                ],
+              },
             },
-          },
-        ],
-      },{
-        test: /\.md$/,
-        use: 'raw-loader',
-      })
+          ],
+        },
+        {
+          test: /\.md$/,
+          use: 'raw-loader',
+        }
+      )
       return config
     },
     env: {
@@ -57,7 +64,7 @@ const getBuildConfig = () => {
       WEB_URI: process.env.WEB_URI,
       SENDGRID_API_KEY: process.env.SENDGRID_API_KEY,
       EMAIL_FROM: process.env.EMAIL_FROM,
-      SESSION_SECRET: process.env.SESSION_SECRET
+      SESSION_SECRET: process.env.SESSION_SECRET,
     },
   }
   return nextConfig

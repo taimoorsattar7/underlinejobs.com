@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react'
 // import Head from 'next/head';
-import SEO from '@components/SEO';
+import SEO from '@components/SEO'
 
-import JobPost from '@components/JobPost/index';
+import JobPost from '@components/JobPost/index'
 
 // import { useRouter } from 'next/router';
 // import { useCurrentUser } from '@hooks/index';
@@ -18,13 +18,10 @@ const jobPost = () => {
 
   return (
     <>
-      <SEO title={"Post a Job"}
-                 description={""}
-                 image={""}
-            />
+      <SEO title={'Post a Job'} description={''} image={''} />
       <JobPost />
     </>
-  );
-};
+  )
+}
 
-export default jobPost;
+export default jobPost

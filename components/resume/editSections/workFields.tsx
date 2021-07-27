@@ -1,34 +1,40 @@
-import React from 'react';
+import React from 'react'
 
-export default function WorkFields({
-    register
-}: any) {
-    // console.log(data)
-    return (
-            <>
-            <section>
+export default function WorkFields({ register, errors }: any) {
+  return (
+    <>
+      <section>
+        <h2 className="headline">
+          <b>Work Experience</b>
+        </h2>
 
-<h2 className="headline">
-        <b>Work Experience</b>
-    </h2>
-
-    {/* Work History Input */}
-<div className="field__input__wrapper">
-    <label htmlFor="title"
-        className="headline headline__text">
+        {/* Work History Input */}
+        <div className="field__input__wrapper">
+          <label htmlFor="personalWebsite" className="headline headline__text">
             <b>Website (optional)</b>
-    </label>
-    <input
-        id="title"
-        className="input-form headline headline__text"
-        {...register("name", { required: true })}
-        type="text"
-        placeholder="https://taimoorsattar.dev"
-        autoFocus
-    />
-    
-    </div>
+          </label>
+          <input
+            id="personalWebsite"
+            className="input-form headline headline__text"
+            {...register('personalWebsite', {
+              pattern: {
+                value:
+                  /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/g,
+                message: 'Entered value does not match email format',
+              },
+            })}
+            type="text"
+            placeholder="https://yourwebsite.dev"
+            autoFocus
+          />
 
-    </section></>
-    );
+          {errors.personalWebsite && errors.personalWebsite.type === 'pattern' && (
+            <span role="alert" className="headline headline__text headline__text headline__error">
+              Entered value does not match website pattern
+            </span>
+          )}
+        </div>
+      </section>
+    </>
+  )
 }

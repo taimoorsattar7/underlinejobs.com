@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react"
-import "./_modal.scss"
+import React, { useState, useEffect } from 'react'
+import './_modal.scss'
 
 const Modal = (props: any) => {
   const [pop, setPop] = useState(false)
 
-  const closeOnEscapeKeyDown = e => {
+  const closeOnEscapeKeyDown = (e: { charCode: any; keyCode: any }) => {
     if ((e.charCode || e.keyCode) === 27) {
       props.onClose()
     }
@@ -15,10 +15,10 @@ const Modal = (props: any) => {
       setPop(true)
     }, props.timer || 0)
 
-    document.body.addEventListener("keydown", closeOnEscapeKeyDown)
+    document.body.addEventListener('keydown', closeOnEscapeKeyDown)
 
     return function cleanup() {
-      document.body.removeEventListener("keydown", closeOnEscapeKeyDown)
+      document.body.removeEventListener('keydown', closeOnEscapeKeyDown)
       clearTimeout(clrtime)
     }
   }, [])
@@ -29,7 +29,7 @@ const Modal = (props: any) => {
 
   return (
     <div className="modal" onClick={props.onClose}>
-      <div className="modal__content" onClick={e => e.stopPropagation()}>
+      <div className="modal__content" onClick={(e) => e.stopPropagation()}>
         <div onClick={props.onClose} className="modal__close-x"></div>
 
         {props.success ? (

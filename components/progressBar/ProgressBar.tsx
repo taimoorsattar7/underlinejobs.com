@@ -11,8 +11,6 @@ export default function ProgressBar(props: any) {
 
                 {props.pbData.map((data: any, index: any) => (<>
                         <div 
-                            // onClick={props.clickNav(data.name)}
-                        //  style="color:green; font-size:18px;"
                             key={index}
                             style={{ left: `${(100/dataLength)*index}%` }}
                             className={`pointer form-step 
