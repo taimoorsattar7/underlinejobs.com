@@ -58,8 +58,6 @@ export const Header = () => {
                 </Link>
               </li>
 
-              <span id="eee">eee</span>
-
               {user ? (
                 <>
                   <li>

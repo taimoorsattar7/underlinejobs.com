@@ -18,7 +18,7 @@ const jobPost = () => {
 
   return (
     <>
-      <SEO title={'Post a Job'} description={''} image={''} />
+      <SEO title="Post a Job" description="" image="" />
       <JobPost />
     </>
   )

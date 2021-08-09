@@ -16,27 +16,25 @@ const LoginPage = () => {
   useEffect(() => {
     // redirect to home if user is authenticated
     if (user) {
-      goto ? Router.replace(`/${String(goto)}`) : Router.replace('/')
+      // eslint-disable-next-line no-unused-expressions
+      goto ? Router.replace(`/${String(goto)}`) : Router.replace('/d')
     }
   }, [user])
 
   return (
     <>
-      <SEO title={'Login - Underline Jobs'} description={'Login'} image={''} />
+      <SEO title="Login - Underline Jobs" description="Login" image="" />
 
       <div className="wrapper wrapper--small">
         <h1 className="headline headline--dull">
           <b>Login for more aww-someness.</b>
         </h1>
-
         <Login />
-
         <hr />
 
         <Link href="/forget-password">
           <a className="m-r-50">Forget password →</a>
         </Link>
-
         <Link href="/signup">
           <a>SignUp →</a>
         </Link>

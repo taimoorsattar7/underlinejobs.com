@@ -15,13 +15,14 @@ const SignupPage = () => {
     // redirect to home if user is authenticated
 
     if (user) {
+      // eslint-disable-next-line no-unused-expressions
       goto ? Router.replace(`/${String(goto)}`) : Router.replace('/')
     }
   }, [user])
 
   return (
     <>
-      <SEO title={'Sign Up | Underline Jobs'} description={''} image={''} />
+      <SEO title="Sign Up | Underline Jobs" description="" image="" />
       <h2 className="headline headline__text">Sign up</h2>
       <Signup />
     </>
