@@ -1,16 +1,17 @@
 const TEST_REGEX = '(/__tests__/.*|(\\.|/)(test|spec))\\.(js?|jsx?|tsx?|ts?)$'
 
 module.exports = {
-    setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
-    testRegex: TEST_REGEX,
-    transform: {
-        '^.+\\.tsx?$': 'babel-jest',
-        '^.+\\.svg$': 'jest-svg-transformer',
-    },
-    testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/'],
-    moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-    collectCoverage: false,
-    moduleNameMapper: {
-        '.+\\.(css|styl|less|sass|scss)$': 'identity-obj-proxy',
-    },
+  setupFiles: ['<rootDir>/.jest/setEnvVars.js'],
+  testRegex: TEST_REGEX,
+  testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/'],
+  setupFilesAfterEnv: ['<rootDir>/.jest/setupTests.js'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
+  transform: {
+    '^.+\\.(js|jsx|ts|tsx)$': '<rootDir>/node_modules/babel-jest',
+    '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+  },
+  collectCoverage: false,
+  moduleNameMapper: {
+    '.+\\.(css|styl|less|sass|scss)$': 'identity-obj-proxy',
+  },
 }

@@ -16,9 +16,9 @@ export default function SkillsField({ register }: any) {
           <input
             id="title"
             className="input-form headline headline__text"
-            {...register('license', { required: true })}
+            {...register('skills')}
             type="text"
-            placeholder="Fast Nuces"
+            placeholder="HTML"
             autoFocus
           />
         </div>

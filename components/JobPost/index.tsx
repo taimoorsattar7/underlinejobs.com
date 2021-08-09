@@ -113,7 +113,6 @@ const JobPostMain = () => {
             return data.json()
           })
           .then((data) => {
-            console.log('company', data)
             data.company.companyId = data.company._id
           })
       } else {

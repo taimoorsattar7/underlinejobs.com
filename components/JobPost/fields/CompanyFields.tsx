@@ -54,7 +54,7 @@ const CompanyFields = ({ register, errors }: any) => {
           aria-invalid={errors.CompanyHeadquarter ? 'true' : 'false'}
           className="input-form headline headline__text"
           {...register('CompanyHeadquarter', { required: true })}
-          type="url"
+          type="text"
           placeholder="Amesterdam Netherlands"
         />
 

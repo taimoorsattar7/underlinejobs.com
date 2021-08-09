@@ -14,7 +14,7 @@ export default function AboutField({ register, errors }: any) {
             className="input-form headline headline__text"
             {...register('name', { required: true })}
             type="text"
-            placeholder="Your name"
+            placeholder="Please enter your name"
             autoFocus
           />
 
@@ -43,11 +43,11 @@ export default function AboutField({ register, errors }: any) {
 
       <div className="flex">
         <div className="field__input__wrapper">
-          <label htmlFor="title" className="headline headline__text">
+          <label htmlFor="email" className="headline headline__text">
             <b>Email</b>
           </label>
           <input
-            id="title"
+            id="email"
             className="input-form headline headline__text"
             {...register('email', {
               required: true,
@@ -69,13 +69,13 @@ export default function AboutField({ register, errors }: any) {
         </div>
 
         <div className="field__input__wrapper">
-          <label htmlFor="title" className="headline headline__text">
+          <label htmlFor="location" className="headline headline__text">
             <b>Location</b>
           </label>
           <input
-            id="title"
+            id="location"
             className="input-form headline headline__text"
-            {...register('location', { required: true })}
+            {...register('location')}
             type="text"
             placeholder="New York City, USA"
             autoFocus
@@ -91,7 +91,7 @@ export default function AboutField({ register, errors }: any) {
 
         <textarea
           id="excerpt"
-          {...register('content', { required: true })}
+          {...register('excerpt')}
           className="headline headline__text"
           placeholder="I'm a front-end developer, designer, and educator. I’ve been building user interfaces for over a decade."
           rows={5}
@@ -100,13 +100,13 @@ export default function AboutField({ register, errors }: any) {
 
       {/* Website Input */}
       <div className="field__input__wrapper">
-        <label htmlFor="title" className="headline headline__text">
+        <label htmlFor="website" className="headline headline__text">
           <b>Website (optional)</b>
         </label>
         <input
-          id="title"
+          id="website"
           className="input-form headline headline__text"
-          {...register('name', { required: true })}
+          {...register('website')}
           type="text"
           placeholder="https://taimoorsattar.dev"
           autoFocus

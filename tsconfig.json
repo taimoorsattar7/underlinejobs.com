@@ -44,5 +44,13 @@
     "**/*.test.tsx",
     "coverage"
   ],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/_app.tsx", "pages/_app.tsx"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "pages/_app.tsx",
+    "pages/_app.tsx",
+    "jest.config.js",
+    ".jest/jest.setup.ts"
+  ]
 }

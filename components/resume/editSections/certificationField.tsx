@@ -15,7 +15,7 @@ export default function CertificationField({ register }: any) {
           <input
             id="title"
             className="input-form headline headline__text"
-            {...register('license', { required: true })}
+            {...register('license')}
             type="text"
             placeholder="Fast Nuces"
             autoFocus

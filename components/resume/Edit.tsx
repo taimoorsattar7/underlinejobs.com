@@ -11,11 +11,11 @@ import SkillsField from '@components/resume/editSections/skillsField'
 import SocialField from '@components/resume/editSections/socialField'
 import WorkFields from '@components/resume/editSections/workFields'
 
-import Login from '@components/auth/login/Login'
+import Auth from '@components/auth/Auth'
 import { changeTabs } from '@lib/tabs'
 
 import { useForm, useFieldArray, SubmitHandler } from 'react-hook-form'
-import Link from 'next/link'
+// import Link from 'next/link'
 
 interface IFormInput {
   name: string
@@ -42,6 +42,11 @@ export default function EditResume({ data = {} }: any) {
           college: '',
           degree: '',
           country: '',
+        },
+      ],
+      skills: [
+        {
+          tech: '',
         },
       ],
     },
@@ -95,21 +100,26 @@ export default function EditResume({ data = {} }: any) {
     },
   ])
 
-  const onSubmit: SubmitHandler<IFormInput> = async (sdata: IFormInput): Promise<any> => {
-    const body = {
-      name: sdata.name,
-      email: sdata.email,
-      website: sdata.website,
-      profession: sdata.profession,
-      exerpt: sdata.exerpt,
-      content: sdata.content,
-    }
+  const onSubmit: SubmitHandler<IFormInput> = async (data) => {
+    console.log(data)
+    // const body = {
+    //   name: data.name,
+    //   email: data.email,
+    //   website: data.website,
+    //   profession: data.profession,
+    //   exerpt: data.exerpt,
+    //   content: data.content,
+    // }
 
-    await fetch('/api/resume', {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
-    })
+    // let res = await fetch('/api/resume', {
+    //   method: 'PUT',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify(body),
+    // })
+
+    // let responce = await res.json()
+
+    // console.log(responce)
 
     // if (res.status === 200) Router.replace('/');
   }
@@ -130,15 +140,11 @@ export default function EditResume({ data = {} }: any) {
         </div>
 
         <div className="wrapper wrapper--small">
-          <p className="headline headline__text">
-            Please login first in order to post the job. If you are not login, please{' '}
-            <Link href="/signup">
-              <a>register</a>
-            </Link>
-            .
+          <p className="headline headline__text m-b-30">
+            <b>Please register first in order to post the job.</b>
           </p>
 
-          <Login />
+          <Auth />
         </div>
       </div>
     )
@@ -187,9 +193,9 @@ export default function EditResume({ data = {} }: any) {
 
               {sectionsData.length == index + 1 ? (
                 <input
-                  className="btn small headline headline__text headline--b"
-                  type="text"
-                  value="Submit 🎉"
+                  className="btn small headline headline__text"
+                  type="submit"
+                  value="click to submit 🎉"
                 />
               ) : (
                 <input
