@@ -34,7 +34,7 @@
     "lint-staged": "^11.1.1",
     "mongocrypt": "^1.1.2",
     "mongodb": "^3.6.3",
-    "mongodb-client-encryption": "^1.2.6",
+    "mongodb-client-encryption": "1.2.7",
     "multer": "^1.4.2",
     "nanoid": "^3.1.18",
     "next-connect": "^0.9.1",
